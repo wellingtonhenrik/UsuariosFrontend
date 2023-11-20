@@ -1,0 +1,34 @@
+
+<!-- Modal de recuperação de senha -->
+<div class="modal fade" id="recuperarModal" tabindex="-1" aria-labelledby="recuperarModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="recuperarModalLabel">Recuperação de Senha</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulário de recuperação de senha -->
+          <form [formGroup]="formRecuperarSenha" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="emailRecuperacao" class="form-label">Email</label>
+              <input type="email" class="form-control" id="emailRecuperacao" name="emailRecuperacao" formControlName="email">
+              <div *ngIf="form.email.touched && form.email.invalid" class="text-danger">
+                <span *ngIf="form.email.errors.required">
+                Por favor, informe seu email
+                </span>
+                <span *ngIf="form.email.errors.email">
+                Por favor, informe um endereço de email válido
+                </span>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary"
+            [disabled]="!formRecuperarSenha.valid">
+              Recuperar Senha
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

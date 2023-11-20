@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'usuariosweb';
+  
+  usuarioAutenticado: boolean = false;
+
+  constructor(){
+  this.usuarioAutenticado = localStorage.getItem("usuario") != null;
+  }
 }

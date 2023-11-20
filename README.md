@@ -1,27 +1,28 @@
-# Usuariosweb
+# usuariosWeb - Angular User Management App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
+Este é um aplicativo Angular chamado `usuariosWeb` que permite gerenciar usuários através de uma API para cadastro, edição e criação de usuários. Para realizar a edição de um usuário, é necessário utilizar o token de acesso armazenado no `localStorage` do navegador.
 
-## Development server
+## Requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Certifique-se de ter o Node.js e o Angular CLI instalados:
 
-## Code scaffolding
+- Node.js: [Download](https://nodejs.org/)
+- Angular CLI: Instale usando o comando `npm install -g @angular/cli`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Configuração do Projeto
 
-## Build
+1. Clone o repositório: `git clone https://github.com/seu-usuario/usuariosWeb.git`
+2. Navegue até o diretório: `cd usuariosWeb`
+3. Instale as dependências: `npm install`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Configuração da API
 
-## Running unit tests
+Este aplicativo consome uma API para realizar operações de CRUD de usuários. Certifique-se de ter a URL da API configurada corretamente no arquivo de configuração.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Exemplo de arquivo de configuração (`src/environments/environment.ts`):
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'https://sua-api.com/users',
+};

@@ -1,0 +1,68 @@
+<div class="container mt-4">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+        <div class="col-md-12"> <!-- Alteração na classe aqui -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h2 class="card-title">Sistema para controle de Usuário</h2>
+                        <p>Seja bem vindo ao projeto!</p>
+                    </div>
+                    <hr/>
+                    <div class="mb-3">
+                        Id do usuario: <strong>{{id}}</strong>
+                    </div>
+                    <div class="mb-3">
+                        Nome do usuario: <strong>{{nome}}</strong>
+                    </div>
+                    <div class="mb-3">
+                        Email do usuario: <strong>{{email}}</strong>
+                    </div>     
+                    <div class="mb-3">
+                        Data e hora de acesso: <strong>{{dataHoraAcesso | date: "dd/MM/yyyy HH:mm"}}</strong>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-sm btn-danger" (click)="logout()">
+                            Sair da conta
+                        </button>
+                    </div>
+                    <hr/>
+                    <!-- Formulário de autenticação -->
+                    <div class="row">
+                        <div class="col-md-12"> <!-- Alteração na classe aqui -->
+                            <form [formGroup]="formAtualizarDados" (ngSubmit)="onSubmit()">
+                                <div class="mb-3">
+                                    <h4>Alterar os dados do usuário</h4>
+                                    <p>Utilize os campos para modificar os dados do usuario autenticado.</p>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nome" class="form-label">Nome de usuário:</label>
+                                    <input type="text" class="form-control" id="nome" name="nome" formControlName="nome" placeholder="Altere seu nome">
+                                    <div *ngIf="form.nome.touched && form.nome.invalid" class="text-danger">
+                                        <span *ngIf="form.nome.errors.minlength">
+                                        Por favor, informe no mínimo 2 caracteres
+                                        </span>
+                                      </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="senha" class="form-label">Senha de acesso:</label>
+                                    <input type="password" class="form-control" id="senha" name="senha" formControlName="senha" placeholder="Altere sua senha ">
+                                    <div *ngIf="form.senha.touched && form.senha.invalid" class="text-danger">                                        
+                                        <span *ngIf="form.senha.errors.pattern">
+                        Por favor, informe senha com letras maiúscula, mínuscular,numeros, caracteres especial e de 8 a 20 digitos
+                                        </span>
+                                                      </div>
+                                </div> 
+                                <div>
+                                    <button type="submit" class="btn btn-primary"
+                                    [disabled]="!formAtualizarDados.valid">
+                                        Salvar alterações
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

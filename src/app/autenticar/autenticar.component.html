@@ -1,0 +1,58 @@
+<div class="container mt-4">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+              <div class="text-center">
+                  <h2 class="card-title">Autenticação de Usuário</h2>
+                  <p>FrontEnd Angular para autenticação com API</p>               
+              </div>
+
+              <div class="mb-2 text-center text-danger">
+                {{mensagem}}
+              </div>
+
+            <!-- Formulário de autenticação -->
+            <form [formGroup]="formAutenticar" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email de acesso:</label>
+                <input type="email" class="form-control" id="email" name="email" formControlName="email">
+              <div *ngIf="form.email.touched && form.email.invalid" class="text-danger">
+<span *ngIf="form.email.errors.required">
+Por favor, informe seu email
+</span>
+<span *ngIf="form.email.errors.email">
+Por favor, informe um endereço de email válido
+</span>
+              </div>
+              </div>
+              <div class="mb-3">
+                <label for="senha" class="form-label">Senha de acesso:</label>
+                <input type="password" class="form-control" id="senha" name="senha" formControlName="senha">
+                <div *ngIf="form.senha.touched && form.senha.invalid" class="text-danger">
+                  <span *ngIf="form.senha.errors.required">
+                  Por favor, informe sua senha
+                  </span>
+                  <span *ngIf="form.senha.errors.pattern">
+Por favor, informe senha com letras maiúscula, mínuscular,numeros, caracteres especial e de 8 a 20 digitos
+                  </span>
+                                </div>
+              </div>
+              <div class="d-grid"> 
+              <button type="submit" class="btn btn-primary"
+                [disabled]="!formAutenticar.valid">
+                Entrar
+              </button>
+          </div>
+            </form>
+  
+            <!-- Links para cadastro e recuperação de senha -->
+            <div class="mt-3 text-center">
+              <a href="#cadastroModal" data-bs-toggle="modal" class="text-decoration-none">Realizar Cadastro</a> | 
+              <a href="#recuperarModal" data-bs-toggle="modal" class="text-decoration-none">Recuperar Senha</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
